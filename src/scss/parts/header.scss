@@ -21,11 +21,14 @@
         &:not(:last-of-type){
             margin-right: 15px;
         }
-        padding: 10px 30px;
-        border: 1px solid $white;
+        padding: 5px 30px;
         text-decoration: none;
         color: $white;
         text-transform: uppercase;
+        &.router-link-active {
+            border: 1px solid $white;
+
+        }
         &:hover {
             color: $primary;
             background-color: $white;

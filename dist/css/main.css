@@ -48,13 +48,14 @@
         -ms-flex-align: center;
             align-items: center; }
   .header__locale-link {
-    padding: 10px 30px;
-    border: 1px solid #FFFFFF;
+    padding: 5px 30px;
     text-decoration: none;
     color: #FFFFFF;
     text-transform: uppercase; }
     .header__locale-link:not(:last-of-type) {
       margin-right: 15px; }
+    .header__locale-link.router-link-active {
+      border: 1px solid #FFFFFF; }
     .header__locale-link:hover {
       color: #6c63ff;
       background-color: #FFFFFF; }
