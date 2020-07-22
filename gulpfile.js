@@ -14,6 +14,11 @@ function html(done) {
     .pipe(browserSync.stream())
     done()
 }
+function assets(done) {
+    src('src/assets/**')
+    .pipe(dest('dist/assets'))
+    done()
+}
 function styles(done) {
     src('src/scss/main.scss')
     .pipe(sourcemaps.init())
@@ -42,7 +47,7 @@ function reload(done) {
     done()
 }
 function watchTask(done) {
-    
+    watch('src/assets/**', series(assets))
     watch('src/js/**', series(scripts))
     watch('src/scss/**', series(styles))
     watch('src/index.html', series(html))
@@ -54,5 +59,5 @@ exports.watch = watchTask
 exports.scripts = scripts
 exports.styles = styles
 exports.serve = serve
-exports.build = parallel(styles, scripts, )
+exports.build = parallel(styles, scripts, assets)
 exports.default = series(serve, watchTask)

@@ -1,0 +1,42 @@
+.header{
+    height: 60px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    &__logo-container {
+        height: 100%;
+        max-width: 100px;
+        width:100%;
+        svg {
+            height: 100%;
+            width:100%;
+        }
+    }
+    &__language-selection {
+        display: flex;
+        align-items: center;
+    }
+    &__locale-link {
+        &:not(:last-of-type){
+            margin-right: 15px;
+        }
+        padding: 10px 30px;
+        border: 1px solid $white;
+        text-decoration: none;
+        color: $white;
+        text-transform: uppercase;
+        &:hover {
+            color: $primary;
+            background-color: $white;
+        }
+
+    }
+    
+        
+        
+        
+
+    
+}
+    

@@ -2,6 +2,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const path = require('path')
 
 module.exports = {
+    mode: 'development', 
     entry: path.resolve(__dirname, './src/js/index.js'),
     resolve: {
         alias: {
@@ -27,6 +28,13 @@ module.exports = {
                 exclude: /(node_modules)/,
                 loader: 'babel-loader'
             },
+            {
+                test: /\.svg$/,
+                use: [
+                  'babel-loader',
+                  'vue-svg-loader',
+                ],
+              },
            
           ]
     },
