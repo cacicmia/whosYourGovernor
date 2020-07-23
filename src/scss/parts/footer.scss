@@ -1,0 +1,29 @@
+.footer {
+    position: absolute;
+    bottom: 0;
+    max-height: 120px;
+    background-color: $secondary;
+    width: 100%;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block{
+        padding: 20px 0;
+        &:nth-of-type(even) {
+            text-transform: uppercase;
+        }
+        p {
+            margin: 10px 0;
+            &:first-of-type {
+                color: $primary;
+    
+            }
+            &:last-of-type {
+                color: $white
+    
+            }
+        }
+       
+    }
+}

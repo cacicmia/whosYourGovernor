@@ -1,29 +1,53 @@
 * {
     padding: 0;
     margin: 0;
+    font-family:  'Poppins', sans-serif;
 }
 .app-container {
-    position: relative; 
     width: 100%; 
-    height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    overflow: hidden;
+    @media (max-width: $mobile) {
+        padding: 0 15px;
+    }
     .clip-container {
+        overflow: hidden;
         position: absolute;
+        z-index: -5;
         right: 0;
         top: 0;
         width: 70%;
         height: 150%;
         background-color: $primary;
         background: linear-gradient(to top right,#fff 60%,transparent 50%) no-repeat, 
-        linear-gradient( $primary 20%, $primary-transparent ) no-repeat;
+        linear-gradient( $primary 50%, $primary-transparent ) no-repeat;
     }
     .content-container {
         margin: 0 auto;
-        max-width: 1280px;
+        max-width: 1024px;
         padding: 0 40px;
         width: 100%;
-        &--padded {
-            padding-left: 140px
+        @media (max-width: $mobile) {
+            padding: 0;
         }
+        &--padded {
+            padding-left: 140px;
+            @media (max-width: $tablet) {
+                padding-left: 40px;
+            }
+            @media (max-width: $mobile) {
+                padding: 0;
+            }
+        }
+    }
+    .page {
+        z-index: 2;
+        margin: 60px 0;
+        flex: 1;
+        margin-bottom: 120px;
     }
    
    

@@ -1,0 +1,86 @@
+.block1 {
+    &__heading-container {
+        margin: 50px 0;
+        &:before {
+            background-color: $primary;
+            width: 60px;
+            height: 5px;
+            content: "";
+            display: block;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: 200;
+            color: $font-color;
+            b {
+                color: $primary;
+                font-size: 56px;
+                font-weight: 700;
+                display: block;
+            }
+        }
+
+    }
+    &__flex-container{
+        display: flex;
+        
+        position: relative;
+        @media (max-width: $mobile){
+            flex-flow: column-reverse;
+
+        }
+    }
+    &__form-container {
+        padding: 5px 0;
+        display: flex;
+        flex: 60%;
+        align-items: flex-end;
+        position: relative;
+        
+    }
+    &__input-fields-container {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        label {
+            font-size: 14px;
+            padding: 10px 0;
+            margin-top: 10px;
+        }
+        input {
+            background-color: $input-color;
+            border: none;
+            padding: 15px 0;
+            &::placeholder {
+                font-weight: 500;
+                padding: 10px;
+            }
+        }
+
+    }
+    &__svg-container {
+        flex: 40%;
+        min-height: 250px;
+        height: 100%;
+        position: relative;
+    
+        // svg {
+        //     position: absolute;
+        //     bottom: 0;
+        //     right: 0;
+        //     max-width: 350px;
+
+        // }
+    }
+    &__svg-background{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 300px;
+        width: 100%;
+        background-image: url('../../assets/Illustration-Speaker.svg'); 
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+}
+

@@ -1,30 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 * {
   padding: 0;
-  margin: 0; }
+  margin: 0;
+  font-family: 'Poppins', sans-serif; }
 
 .app-container {
-  position: relative;
   width: 100%;
-  height: 100vh; }
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  position: relative;
+  overflow: hidden; }
+  @media (max-width: 768px) {
+    .app-container {
+      padding: 0 15px; } }
   .app-container .clip-container {
+    overflow: hidden;
     position: absolute;
+    z-index: -5;
     right: 0;
     top: 0;
     width: 70%;
     height: 150%;
     background-color: #6c63ff;
-    background: -webkit-gradient(linear, left bottom, right top, color-stop(60%, #fff), color-stop(50%, transparent)) no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(20%, #6c63ff), to(rgba(108, 99, 255, 0.5))) no-repeat;
-    background: linear-gradient(to top right, #fff 60%, transparent 50%) no-repeat, linear-gradient(#6c63ff 20%, rgba(108, 99, 255, 0.5)) no-repeat; }
+    background: -webkit-gradient(linear, left bottom, right top, color-stop(60%, #fff), color-stop(50%, transparent)) no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #6c63ff), to(rgba(108, 99, 255, 0.5))) no-repeat;
+    background: linear-gradient(to top right, #fff 60%, transparent 50%) no-repeat, linear-gradient(#6c63ff 50%, rgba(108, 99, 255, 0.5)) no-repeat; }
   .app-container .content-container {
     margin: 0 auto;
-    max-width: 1280px;
+    max-width: 1024px;
     padding: 0 40px;
     width: 100%; }
+    @media (max-width: 768px) {
+      .app-container .content-container {
+        padding: 0; } }
     .app-container .content-container--padded {
       padding-left: 140px; }
+      @media (max-width: 1280px) {
+        .app-container .content-container--padded {
+          padding-left: 40px; } }
+      @media (max-width: 768px) {
+        .app-container .content-container--padded {
+          padding: 0; } }
+  .app-container .page {
+    z-index: 2;
+    margin: 60px 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-bottom: 120px; }
 
 .header {
   height: 60px;
+  width: 100%;
   position: sticky;
   top: 0;
   display: -webkit-box;
@@ -51,7 +83,8 @@
     padding: 5px 30px;
     text-decoration: none;
     color: #FFFFFF;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-size: 16px; }
     .header__locale-link:not(:last-of-type) {
       margin-right: 15px; }
     .header__locale-link.router-link-active {
@@ -59,5 +92,148 @@
     .header__locale-link:hover {
       color: #6c63ff;
       background-color: #FFFFFF; }
+
+.block1__heading-container {
+  margin: 50px 0; }
+  .block1__heading-container:before {
+    background-color: #6c63ff;
+    width: 60px;
+    height: 5px;
+    content: "";
+    display: block; }
+  .block1__heading-container h1 {
+    font-size: 48px;
+    font-weight: 200;
+    color: #343348; }
+    .block1__heading-container h1 b {
+      color: #6c63ff;
+      font-size: 56px;
+      font-weight: 700;
+      display: block; }
+
+.block1__flex-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative; }
+  @media (max-width: 768px) {
+    .block1__flex-container {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+          -ms-flex-flow: column-reverse;
+              flex-flow: column-reverse; } }
+
+.block1__form-container {
+  padding: 5px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  position: relative; }
+
+.block1__input-fields-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  width: 100%; }
+  .block1__input-fields-container label {
+    font-size: 14px;
+    padding: 10px 0;
+    margin-top: 10px; }
+  .block1__input-fields-container input {
+    background-color: #f0efff;
+    border: none;
+    padding: 15px 0; }
+    .block1__input-fields-container input::-webkit-input-placeholder {
+      font-weight: 500;
+      padding: 10px; }
+    .block1__input-fields-container input::-moz-placeholder {
+      font-weight: 500;
+      padding: 10px; }
+    .block1__input-fields-container input:-ms-input-placeholder {
+      font-weight: 500;
+      padding: 10px; }
+    .block1__input-fields-container input::-ms-input-placeholder {
+      font-weight: 500;
+      padding: 10px; }
+    .block1__input-fields-container input::placeholder {
+      font-weight: 500;
+      padding: 10px; }
+
+.block1__svg-container {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  min-height: 250px;
+  height: 100%;
+  position: relative; }
+
+.block1__svg-background {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 300px;
+  width: 100%;
+  background-image: url("../../assets/Illustration-Speaker.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right; }
+
+.block2__heading-container {
+  padding: 30px 60px;
+  background-color: #6c63ff;
+  width: 40%;
+  margin-top: 60px;
+  margin-bottom: 60px; }
+  .block2__heading-container h2 {
+    color: #FFFFFF;
+    font-weight: 200;
+    padding-left: 140px; }
+
+.block2__info-wrappper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 50px initial; }
+
+.btn {
+  background-color: #6c63ff;
+  color: #FFFFFF;
+  border: none;
+  padding: 15px 10px;
+  margin: 0 10px;
+  min-width: 200px; }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  max-height: 120px;
+  background-color: #3e3c61;
+  width: 100%; }
+  .footer__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .footer__block {
+    padding: 20px 0; }
+    .footer__block:nth-of-type(even) {
+      text-transform: uppercase; }
+    .footer__block p {
+      margin: 10px 0; }
+      .footer__block p:first-of-type {
+        color: #6c63ff; }
+      .footer__block p:last-of-type {
+        color: #FFFFFF; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,11 +1,11 @@
 <template>
-  <div class="content-container content-container--padded header">
+  <header class="header content-container content-container--padded">
       <div class="header__logo-container">
           <Logo/>
       </div>
       <LanguageSelection/> 
       
-  </div>
+  </header>
 </template>
 
 <script>

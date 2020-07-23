@@ -1,3 +1,11 @@
 $primary: rgba(108, 99, 255, 1);
 $primary-transparent: rgba(108, 99, 255, 0.5);
-$white: #FFFFFF
+$secondary: #3e3c61;
+$white: #FFFFFF;
+$font-color: #343348;
+$input-color: #f0efff;
+//media queries
+$tablet: 1280px;
+$mobile: 768px;
+//font
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap')

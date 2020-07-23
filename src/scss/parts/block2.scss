@@ -1,0 +1,19 @@
+.block2 {
+    &__heading-container {
+        padding: 30px 60px;
+        background-color: $primary;
+        width: 40%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        h2 {
+            color: $white;
+            font-weight: 200;
+            padding-left: 140px;
+        }
+        
+    }
+    &__info-wrappper {
+        display: flex;
+        margin: 50px initial;
+    }
+}
