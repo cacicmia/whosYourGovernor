@@ -9,17 +9,12 @@
                 border: none;
                 background-color: $input-color;
                 width: 100%;
-                padding: 12px 0;
+                // padding: 12px 0;
                 border-radius: 0;
                 &--multiple {
                     border: none;
                 }
-                &__rendered{
-                    .select2-selection__rendered {
-                        line-height: initial;
-                        
-                    }
-                }
+                
                 &__placeholder{
                     font-size: 14px;
                     font-weight: 500;
@@ -78,15 +73,49 @@
                 }
             }
         }
-        .select2-search--inline {
-            .select2-search__field {
-                margin-left: 10px;
-
+        .select2-selection {
+            &--multiple {
+                border: none;
+                ul.select2-selection__rendered{
+                    height: 100%;
+                    padding: 0;
+                    
+                }
+                
+                li.select2-selection__choice {
+                    width: 100%;
+                    float: none;
+                    border: none;
+                    border-radius: 0;
+                    background-color: $input-color; 
+                    position: absolute;
+                    font-weight: 700;
+                    color: $primary-semi-light;
+                    padding: 10px 12px;
+                    
+                    .select2-selection__choice__remove{
+                        
+                        // display: block;
+                        background-color: transparent;
+                        margin: 0;
+                        padding: 0 5px;
+                    }
+               } 
             }
         }
+        
         &.select2-container--focus {
             .select2-selection--multiple {
                 border: none!important;
+                height: 50px;
+            }
+        }
+        .select2-search--inline {
+            .select2-search__field[type=search] {
+                // margin: 0 10px;
+                padding: 12px 10px;
+                //
+
             }
         }
     }

@@ -8,9 +8,9 @@
                 <div class="block1__input-fields-container">
                     <label for="county">{{$t('block1.county_label')}}</label>
                     
-                    <Select2 ref="countyValue" v-model="countyValue" :settings="countySelectSettings" id="county" name="county" @change="changecounty" :key="`county-${townTrigger}`" />
+                    <Select2 ref="countyValue" v-model="countyValue" :settings="countySelectSettings" :options="countyOptions" @change="changeCounty" id="county" name="county" />
                     <label for="town">{{$t('block1.town_label')}}</label>
-                    <Select2 ref="townValue" v-model="townValue" :settings="townSelectSettings" @select="townUpdate" id="town" name="town" :key="`town${countyTrigger}`"/>
+                    <Select2 ref="townValue" v-model="townValue" :settings="townSelectSettings" :options="townOptions" @select="townUpdate" id="town" name="town" />
                 </div>
                 <div class="form__button-container">
                     <button class="btn btn-primary">
@@ -46,143 +46,98 @@ export default {
     data() {
         return {
             countyValue: [],
-            countyFromTown: '',
             townValue: [],
-            countyTrigger: false,
-            townTrigger: false,
-            // countyURL: this.initialListURL,
-            // townURL:this.initialListURL,
-            countyOptions: [],
-            detailsUrl: this.initialDetailsUrl
+            detailsUrl: this.initialDetailsUrl,
             // la.search = 'v=1&z=2'
+            countyOptions: [],
+            townOptions: []
+            
         }
     }, 
     methods: {
-        fetchCountyOptions(search, loading) {
+        initOptions() {
             let vm = this
-            let url = this.countyURL
-            axios.get(url).then((response) => {
-                vm.countyOptions = response.data.counties.map((county)=> ({
-                    id: county.ID,
-                    text: county.name  
-                }
-                ))
-                console.log(response.data)
+            axios.get(this.initialListURL)
+            .then(response => {
+                console.log(response)
+                let countyResults =  response.data.counties.map((county)=> ({
+                        id: county.ID,
+                        text: county.name  
+                    })
+                )
+                countyResults =  countyResults.sort((a, b)=>a.text.localeCompare(b.text))
+                vm.countyOptions = countyResults
+                
+                let townResults = response.data.towns.concat(response.data.communities)
+                townResults = townResults.map((entity)=> ({
+                        id: `${entity.ID}-${entity.name}`,
+                        text: entity.name,
+                        countyID: entity.countyID
+
+                        }
+                    ))
+                townResults =  townResults.sort((a, b)=>a.text.localeCompare(b.text))
+                vm.townOptions =  townResults
             }).catch(err=>console.log(err))
-            //check vue axios
         },
-        changecounty(e) {
-            console.log(e)
+
+        changeCounty(value) {
+            console.log(value)
+            if (!value.length){
+                this.townValue = []
+            }
+            
         },
  
-       
         townUpdate(newValue) {
-            this.countyFromTown = newValue.countyID
-            this.countyValue = [newValue.countyID]
-            // this.countyValue.push(newValue.countyID)
-            // console.log(this.countyValue, $(this.$refs.countyValue))
-            // this.countyTriggerFlag = true; 
-            // $(this.$refs.countyValue).find('input').trigger('change')
-        },
-        
+            if (!this.countyValue.length){
+                this.countyValue = [newValue.countyID]
+            }
+        },   
     },
     mounted() {
-        console.log( this.$root.$options);
-        // this.fetchCountyOptions()
+        this.initOptions()
+
+        
     },
     computed: {
         
-        countyURL() {
-            let url = this.initialListURL;
-            url = url.concat('?entityType=1')
-            return url
-        },
-      
         countySelectSettings() {
-            let term = ''
-            const vm = this
             const settings = {
                 minimumResultsForSearch: -1,
                 escapeMarkup: markup => markup,
                 placeholder: this.$root.$options.i18n.t('block1.county_placeholder'),
                 multiple: true,
                 maximumSelectionLength: 1,
-                ajax: {
-                url: this.countyURL,
-                    data: function (params) {
-                        term = params.term
-                        return '';
-                    },
-                   
-                    processResults: function(data){
-                        let results= data.counties.map((county)=> ({
-                                id: county.ID,
-                                text: county.name  
-                            }
-                            ))
-                            results = results.sort((a, b)=>a.text.localeCompare(b.text))
-                           
-                            if (term){
-                                results = results.filter((result=>result.text.toLowerCase().includes(term.toLowerCase())))
-                            }
-                            if (vm.townValue.length){
-                                results = results.map(result=>{
-                                    console.log('processresults county',result.id == vm.countyFromTown )
-                                    if (result.id == vm.countyFromTown){
-                                        return {
-                                            ...result,
-                                            selected: true
-                                        }
-                                    } else {
-                                        return result
-                                    }
-                                }) 
-                            }
-                        return {
-                            results: results
-                        }
-                    }
-                }
-
             }
             return settings
         },
         townSelectSettings() {
-            let term =''
             const vm = this
-            let settings = {
+            const settings = {
                 minimumResultsForSearch: -1,
                 escapeMarkup: markup => markup,
                 placeholder: this.$root.$options.i18n.t('block1.town_placeholder'),
                 multiple: true,
                 maximumSelectionLength: 1,
-                ajax: {
-                    url: this.initialListURL,
-                    data: function (params) {
-                        term = params.term
-                        return '';
-                    },
-                    processResults: function(data){                        
-                        let results = data.towns.concat(data.communities)
-                        results = results.map((entity)=> ({
-                                id: entity.ID,
-                                text: entity.name,
-                                countyID: entity.countyID
-
-                                }
-                            ))
-                        results = results.sort((a, b)=>a.text.localeCompare(b.text)) 
-                        if (vm.countyValue.length){
-                            results = results.filter(result=>result.countyID == vm.countyValue[0])
-                        }
-                        if (term){
-                            results = results.filter(result=>result.text.toLowerCase().includes(term.toLowerCase()))
-                        }
-                        return {
-                            results: results
-                        }
+                data: this.townOptions,
+                matcher: function(params, data) {
+                    if (vm.countyValue.length){
+                        if (data.countyID != vm.countyValue[0] ){
+                            return null
+                        }  
                     }
-                }, 
+                    if ($.trim(params.term) === '') {
+                        return data;
+                    }
+                    if (typeof data.text === 'undefined') {
+                        return null;
+                    }
+                    if (data.text.toLowerCase().indexOf(params.term.toLowerCase()) > -1) {
+                        return data;
+                    }
+                    return null;
+                }
             }
             return settings
         }
