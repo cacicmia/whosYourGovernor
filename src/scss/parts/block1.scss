@@ -51,10 +51,18 @@
             background-color: $input-color;
             border: none;
             padding: 15px 0;
+            width: 100%;
             &::placeholder {
                 font-weight: 500;
-                padding: 10px;
+                // padding: 10px;
             }
+           
+            select{
+                &:focus{
+                    outline-color: transparent;
+                }
+            }
+           
         }
 
     }

@@ -1,0 +1,94 @@
+.select2 {
+    &.select2-container{
+        max-width: 400px;
+        width: 100%!important;
+        height: 50px;
+        overflow: hidden;
+        &--default {
+            .select2-selection {
+                border: none;
+                background-color: $input-color;
+                width: 100%;
+                padding: 12px 0;
+                border-radius: 0;
+                &--multiple {
+                    border: none;
+                }
+                &__rendered{
+                    .select2-selection__rendered {
+                        line-height: initial;
+                        
+                    }
+                }
+                &__placeholder{
+                    font-size: 14px;
+                    font-weight: 500;
+                    padding: 10px;
+                    color: $placeholder;
+                }
+                &__arrow {
+                    display: none;
+                }
+            }
+           
+
+        }
+   
+        &--open {
+           .select2-dropdown{
+               &--below {
+                margin-top: 10px;
+               }
+           } 
+        }
+
+        
+    } 
+     
+}
+.select2-container{
+
+    &--open {
+       .select2-dropdown{
+           border: none;
+           &--below {
+            margin-top: 5px
+           }
+       } 
+    }
+    &--default {
+        .select2-results{
+            padding-top: 2px;
+            padding-right: 2px;
+            background-color: $primary;
+            height: 35px;
+            &__option {
+                color: $primary-semi-light;
+                &:nth-of-type(even){
+                    background-color: $white;
+
+                }
+                &:nth-of-type(odd){
+                    background-color:$primary-light;
+                    
+                }
+                &--highlighted {
+                    color: $white;
+                    background-color: $primary!important;
+                }
+            }
+        }
+        .select2-search--inline {
+            .select2-search__field {
+                margin-left: 10px;
+
+            }
+        }
+        &.select2-container--focus {
+            .select2-selection--multiple {
+                border: none!important;
+            }
+        }
+    }
+    
+}

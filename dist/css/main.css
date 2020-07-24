@@ -14,8 +14,7 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  position: relative;
-  overflow: hidden; }
+  position: relative; }
   @media (max-width: 768px) {
     .app-container {
       padding: 0 15px; } }
@@ -26,7 +25,7 @@
     right: 0;
     top: 0;
     width: 70%;
-    height: 150%;
+    height: 100%;
     background-color: #6c63ff;
     background: -webkit-gradient(linear, left bottom, right top, color-stop(60%, #fff), color-stop(50%, transparent)) no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(50%, #6c63ff), to(rgba(108, 99, 255, 0.5))) no-repeat;
     background: linear-gradient(to top right, #fff 60%, transparent 50%) no-repeat, linear-gradient(#6c63ff 50%, rgba(108, 99, 255, 0.5)) no-repeat; }
@@ -68,7 +67,9 @@
   .header__logo-container {
     height: 100%;
     max-width: 100px;
-    width: 100%; }
+    width: 100%;
+    background: -webkit-gradient(linear, left top, right top, from(white), to(transparent));
+    background: linear-gradient(90deg, white, transparent); }
     .header__logo-container svg {
       height: 100%;
       width: 100%; }
@@ -152,22 +153,20 @@
   .block1__input-fields-container input {
     background-color: #f0efff;
     border: none;
-    padding: 15px 0; }
+    padding: 15px 0;
+    width: 100%; }
     .block1__input-fields-container input::-webkit-input-placeholder {
-      font-weight: 500;
-      padding: 10px; }
+      font-weight: 500; }
     .block1__input-fields-container input::-moz-placeholder {
-      font-weight: 500;
-      padding: 10px; }
+      font-weight: 500; }
     .block1__input-fields-container input:-ms-input-placeholder {
-      font-weight: 500;
-      padding: 10px; }
+      font-weight: 500; }
     .block1__input-fields-container input::-ms-input-placeholder {
-      font-weight: 500;
-      padding: 10px; }
+      font-weight: 500; }
     .block1__input-fields-container input::placeholder {
-      font-weight: 500;
-      padding: 10px; }
+      font-weight: 500; }
+    .block1__input-fields-container input select:focus {
+      outline-color: transparent; }
 
 .block1__svg-container {
   -webkit-box-flex: 40%;
@@ -191,7 +190,7 @@
   padding: 30px 60px;
   background-color: #6c63ff;
   width: 40%;
-  margin-top: 60px;
+  margin-top: 90px;
   margin-bottom: 60px; }
   .block2__heading-container h2 {
     color: #FFFFFF;
@@ -208,9 +207,60 @@
   background-color: #6c63ff;
   color: #FFFFFF;
   border: none;
-  padding: 15px 10px;
+  height: 50px;
   margin: 0 10px;
   min-width: 200px; }
+
+.select2.select2-container {
+  max-width: 400px;
+  width: 100% !important;
+  height: 50px;
+  overflow: hidden; }
+  .select2.select2-container--default .select2-selection {
+    border: none;
+    background-color: #f0efff;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 0; }
+    .select2.select2-container--default .select2-selection--multiple {
+      border: none; }
+    .select2.select2-container--default .select2-selection__rendered .select2-selection__rendered {
+      line-height: initial; }
+    .select2.select2-container--default .select2-selection__placeholder {
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px;
+      color: #757575; }
+    .select2.select2-container--default .select2-selection__arrow {
+      display: none; }
+  .select2.select2-container--open .select2-dropdown--below {
+    margin-top: 10px; }
+
+.select2-container--open .select2-dropdown {
+  border: none; }
+  .select2-container--open .select2-dropdown--below {
+    margin-top: 5px; }
+
+.select2-container--default .select2-results {
+  padding-top: 2px;
+  padding-right: 2px;
+  background-color: #6c63ff;
+  height: 35px; }
+  .select2-container--default .select2-results__option {
+    color: #9892ff; }
+    .select2-container--default .select2-results__option:nth-of-type(even) {
+      background-color: #FFFFFF; }
+    .select2-container--default .select2-results__option:nth-of-type(odd) {
+      background-color: #f0efff; }
+    .select2-container--default .select2-results__option--highlighted {
+      color: #FFFFFF;
+      background-color: #6c63ff !important; }
+
+.select2-container--default .select2-search--inline .select2-search__field {
+  margin-left: 10px; }
+
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+  border: none !important; }
 
 .footer {
   position: absolute;
