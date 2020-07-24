@@ -1,9 +1,9 @@
 <template>
-    <div class="block2">
+    <div class="block2" v-if="details.ID">
         <div class="block2__heading-container">
             <h2>{{$t("block2.heading")}} </h2>
         </div>
-        <div class="block2__info-wrappper content-container content-container--padded content-container--right" v-if="details.ID">
+        <div class="block2__info-wrappper content-container content-container--padded content-container--right">
             <div class="block2__column" >
                 <div class="block2__row" v-for="key in keys1" :key="key">
                     <p>{{$t(`block2.${key}`)}}</p>
