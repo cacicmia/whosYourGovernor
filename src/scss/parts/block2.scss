@@ -2,18 +2,74 @@
     &__heading-container {
         padding: 30px 60px;
         background-color: $primary;
-        width: 40%;
+        width: 46%;
         margin-top: 90px;
         margin-bottom: 60px;
+        padding-left: calc((100% - 1024px)/2 + 140px);
+        box-shadow: 2px 2px 3px $primary-transparent; 
+        @media (max-width: $m){
+            padding-left: 40px;
+        }
+        @media (max-width: $s){
+            padding-left: 15px;
+        }
+        @media (max-width: $xs){
+            width: 70%;
+        }
+        @media (max-width: $xxs){
+            width: 90%;
+        }
         h2 {
             color: $white;
             font-weight: 200;
-            padding-left: 140px;
         }
         
     }
     &__info-wrappper {
         display: flex;
-        margin: 50px initial;
+        margin: 50px initial 120px;
+        @media (max-width: $m){
+            flex-flow: column;
+        }
+       
+    }
+    &__column {
+        flex: 50%;
+        padding-right: 60px;
+    }
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: $m){
+            padding: 0 
+        }
+        @media (max-width: $m){
+            flex-flow: column 
+        }
+        
+        p {
+            // flex: 50%;
+            
+            width: 100%;
+            padding: 5px 20px 5px 0;
+            margin: 10px 0;
+            color: $primary;
+            width: 100%;
+
+
+            &:first-of-type {
+                max-width: 200px;
+                font-weight: 700;
+            }
+            &:last-of-type{
+                border-bottom: 1px solid $primary;
+                width: 220px;
+            }
+            a {
+                text-decoration: none;
+                color: $primary;
+            }
+        }
+         
     }
 }

@@ -1,6 +1,7 @@
 .block1 {
     &__heading-container {
         margin: 50px 0;
+
         &:before {
             background-color: $primary;
             width: 60px;
@@ -12,11 +13,19 @@
             font-size: 48px;
             font-weight: 200;
             color: $font-color;
+            @media (max-width: $xxs){
+                font-size: 32px;
+    
+            }
             b {
                 color: $primary;
                 font-size: 56px;
                 font-weight: 700;
                 display: block;
+                @media (max-width: $xxs){
+                    font-size: 36px;
+        
+                }
             }
         }
 
@@ -25,7 +34,7 @@
         display: flex;
         
         position: relative;
-        @media (max-width: $mobile){
+        @media (max-width: $m){
             flex-flow: column-reverse;
 
         }
@@ -36,12 +45,16 @@
         flex: 60%;
         align-items: flex-end;
         position: relative;
+        @media (max-width: $xs){
+            flex-flow: column; 
+            align-items: flex-start;
+        }
         
     }
     &__input-fields-container {
         display: flex;
         flex-flow: column;
-        width: 100%;
+        flex: 50%;
         label {
             font-size: 14px;
             padding: 10px 0;
@@ -64,21 +77,25 @@
             }
            
         }
+        @media (max-width: $xs){
+            margin: 10px auto;
+        }
 
+    }
+    &__button-container {
+        @media (max-width: $m){
+            justify-self: center;
+            flex: 50%;
+        }
+        @media (max-width: $xs){
+            margin: 20px auto;
+        }
     }
     &__svg-container {
         flex: 40%;
         min-height: 250px;
         height: 100%;
         position: relative;
-    
-        // svg {
-        //     position: absolute;
-        //     bottom: 0;
-        //     right: 0;
-        //     max-width: 350px;
-
-        // }
     }
     &__svg-background{
         position: absolute;
@@ -89,6 +106,9 @@
         background-image: url('../../assets/Illustration-Speaker.svg'); 
         background-repeat: no-repeat;
         background-position: bottom right;
+        @media (max-width: $m){
+            right: 50px
+        }
     }
 }
 

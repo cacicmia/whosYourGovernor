@@ -1,6 +1,7 @@
 .select2 {
     &.select2-container{
         max-width: 400px;
+        min-width: 280px;
         width: 100%!important;
         height: 50px;
         overflow: hidden;
@@ -36,7 +37,12 @@
                }
            } 
         }
-
+        @media (max-width: $xs){
+            min-width: 400px
+        }
+        @media (max-width: $xxs){
+            min-width: 300px
+        }
         
     } 
      

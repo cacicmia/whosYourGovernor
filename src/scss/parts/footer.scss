@@ -4,9 +4,16 @@
     max-height: 120px;
     background-color: $secondary;
     width: 100%;
+    @media (max-width: $s) {
+        max-height: initial;
+    }
     &__container {
         display: flex;
         justify-content: space-between;
+        @media (max-width: $s) {
+            flex-flow: column;
+            align-items: center;
+        }
     }
     &__block{
         padding: 20px 0;
@@ -22,6 +29,9 @@
             &:last-of-type {
                 color: $white
     
+            }
+            @media (max-width: $s) {
+                text-align: center;
             }
         }
        
