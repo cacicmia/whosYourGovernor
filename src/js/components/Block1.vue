@@ -114,16 +114,21 @@ export default {
             const vm = this
             if (this.entityType && this.entityID){
                 let url = this.initialDetailsUrl;
+                
                 url =url.concat(`?entityType=${this.entityType}&ID=${this.entityID}`)
                 axios.get(url)
                 .then(response => {
+                
                     vm.detailsData = response.data
                     vm.emitData()
                 })
                 .catch(error=> console.error(error))
+               
             }
         },
         emitData() {
+            this.countyValue = '';
+            this.townValue= '';
             EventBus.$emit('details_update', this.detailsData);
         } 
     },
