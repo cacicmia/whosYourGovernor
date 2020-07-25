@@ -59,5 +59,5 @@ exports.watch = watchTask
 exports.scripts = scripts
 exports.styles = styles
 exports.serve = serve
-exports.build = parallel(styles, scripts, assets)
+exports.build = parallel(styles, scripts, assets, html)
 exports.default = series(serve, watchTask)
