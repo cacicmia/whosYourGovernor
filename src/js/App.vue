@@ -16,9 +16,6 @@ import Content from './components/Content.vue'
 import Footer from './components/Footer.vue'
 
 export default {
-  mounted() {
-    console.log('mounted app');
-  },
   components: {
     Header,
     Footer,

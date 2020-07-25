@@ -200,6 +200,36 @@
       font-weight: 500; }
     .block1__input-fields-container input select:focus {
       outline-color: transparent; }
+  .block1__input-fields-container .county-select input::-webkit-input-placeholder {
+    padding-left: 30px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../assets/Icon-Location.svg"); }
+  .block1__input-fields-container .county-select input::-moz-placeholder {
+    padding-left: 30px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../assets/Icon-Location.svg"); }
+  .block1__input-fields-container .county-select input:-ms-input-placeholder {
+    padding-left: 30px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../assets/Icon-Location.svg"); }
+  .block1__input-fields-container .county-select input::-ms-input-placeholder {
+    padding-left: 30px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../assets/Icon-Location.svg"); }
+  .block1__input-fields-container .county-select input::placeholder {
+    padding-left: 30px;
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../../assets/Icon-Location.svg"); }
   @media (max-width: 580px) {
     .block1__input-fields-container {
       margin: 10px auto; } }
@@ -428,6 +458,9 @@
       text-transform: uppercase; }
     .footer__block p {
       margin: 10px 0; }
+      .footer__block p a {
+        color: inherit;
+        text-decoration: none; }
       .footer__block p:first-of-type {
         color: #6c63ff; }
       .footer__block p:last-of-type {

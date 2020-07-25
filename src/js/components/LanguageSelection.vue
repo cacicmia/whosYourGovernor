@@ -1,6 +1,6 @@
 <template>
   <div class="header__language-selection">
-        <!-- {{$t("blah")}} -->
+        
     <router-link
         v-for="locale in locales"
         :key="locale.code"
@@ -13,11 +13,11 @@
 </template>
 
 <script>
-import { locales } from '../config/i18n'
+import { locales } from '../config/i18n.js'
 
 export default {
     mounted() {
-        console.log(this.$route.params);
+        this.$i18n.locale = this.$route.params.locale
     },
     data() {
       return {
@@ -26,9 +26,16 @@ export default {
     },
     computed: {
       currentLocale() {
+        
         return this.$route.params.locale
       },
     },
+    watch: {
+      currentLocale: function(val){
+        this.$i18n.locale = val;
+      }
+    }
+    
 }
 </script>
 

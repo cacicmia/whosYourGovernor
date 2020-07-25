@@ -8,7 +8,7 @@
                 <div class="block1__input-fields-container">
                     <label for="county">{{$t('block1.county_label')}}</label>
                     
-                    <Select2 ref="countyValue" v-model="countyValue" :settings="countySelectSettings" :options="countyOptions" @change="changeCounty" id="county" name="county" :required="true" />
+                    <Select2 ref="countyValue" v-model="countyValue" :settings="countySelectSettings" :options="countyOptions" @change="changeCounty" id="county" name="county" :required="true" class="county-select" />
                     <label for="town">{{$t('block1.town_label')}}</label>
                     <Select2 ref="townValue" v-model="townValue" :settings="townSelectSettings" :options="townOptions" @select="townUpdate" id="town" name="town" :required="true"/>
                 </div>
@@ -55,7 +55,8 @@ export default {
             townOptions: [],
             entityType: '',
             entityID: '',
-            detailsData: {}
+            detailsData: {},
+            
             
         }
     }, 
@@ -84,7 +85,7 @@ export default {
                     ))
                 townResults =  townResults.sort((a, b)=>a.text.localeCompare(b.text))
                 vm.townOptions =  townResults
-            }).catch(err=>console.log(err))
+            }).catch(err=>console.error(err))
         },
 
         changeCounty(value) {
@@ -128,8 +129,6 @@ export default {
     },
     mounted() {
         this.initOptions()
-
-        
     },
     computed: {
         

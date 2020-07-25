@@ -21,7 +21,8 @@ module.exports = {
             {
                 test: /\.vue$/,
                 exclude: /(node_modules)/,
-                loader: 'vue-loader'
+                loader: 'vue-loader',
+                
             },
             {
                 test: /\.js$/,
@@ -41,8 +42,8 @@ module.exports = {
                     'vue-style-loader',
                     'css-loader'
                 ]
-            }
-           
+            },
+          
           ]
     },
     plugins: [
